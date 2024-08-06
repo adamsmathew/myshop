@@ -7,22 +7,22 @@
         @method('PUT')
         <div class="form-row">
             <label for="title">Title</label>
-            <input class="form-control" type="text" name="title" value="{{ $product->title}}" id="title" required>
+            <input class="form-control" type="text" name="title" value="{{ $product->title}}" id="title" >
         </div>
 
         <div class="form-row">
             <label for="description">Description</label>
-            <input class="form-control" type="text" name="description" value="{{ $product->description}}" id="description" required>
+            <input class="form-control" type="text" name="description" value="{{ $product->description}}" id="description" >
         </div>
 
         <div class="form-row">
             <label for="price">Price</label>
-            <input class="form-control" type="number" name="price" value="{{ $product->price}}" id="price" required>
+            <input class="form-control" type="number" name="price" value="{{ $product->price}}" id="price" >
         </div>
 
         <div class="form-row">
             <label for="stock">Stock</label>
-            <input class="form-control" type="number" name="stock" value="{{ $product->stock}}" id="stock" required>
+            <input class="form-control" type="number" name="stock" value="{{ $product->stock}}" id="stock" >
         </div>
 
         <div class="form-row">

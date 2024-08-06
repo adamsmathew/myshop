@@ -19,8 +19,29 @@ class ProductController extends Controller
         return view ('products.create');
     }
 
-    public function store(Request $request)
+    public function store()
     {
+        $product = Product::create(request()->all());
+        // $rules = [
+        //     'title' =>['required','max:255'],
+        //     'description' =>['required','max:1000'],
+        //     'price' =>['required','min:1'],
+        //     'stock' =>['required','min:0'],
+        //     'status' =>['required','in:available,unavailabe'],
+            
+        // ];
+        // request()->validate($rules);
+
+        if(request()->stock == 0 && request()->status == 'available'){
+            session()->flash('error','if available must have stock');
+
+            return redirect()->back();
+        
+        }
+
+       session()->forget('error');
+        return redirect()->route('products.index');
+    }
         // dd(request(), request()->title,request()->all());
 
         //array -
@@ -33,10 +54,10 @@ class ProductController extends Controller
         //     'status' =>request()->status,
         // ]);
 
-        $product = Product::create(request()->all());
-        return $product;
+        // $product = Product::create(request()->all());
+        // return $product;
 
-    }
+// }
 
     public function show($productId)
     {
@@ -55,6 +76,15 @@ class ProductController extends Controller
 
     public function update($product)
     {
+        $rules = [
+            'title' =>['required','max:255'],
+            'description' =>['required','max:1000'],
+            'price' =>['required','min:1'],
+            'stock' =>['required','min:0'],
+            'status' =>['required','in:available,unavailabe'],
+            
+        ];
+
         $product = Product::findOrFail($product);
 
         $product->update(request()->all());
