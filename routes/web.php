@@ -12,7 +12,7 @@ Route::get('/', function () {
 Route::get('products', [ProductController::class, 'index'])->name('products.index');
 
 // Route for creating a new product
-Route::post('products/create', [ProductController::class, 'create'])->name('products.create');
+Route::get('products/create', [ProductController::class, 'create'])->name('products.create');
 
 // Route for storing a new product
 Route::post('products', [ProductController::class, 'store'])->name('products.store');

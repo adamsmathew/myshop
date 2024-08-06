@@ -35,7 +35,16 @@
                             <td>{{ $product->price }}</td>
                             <td>{{ $product->stock }}</td>
                             <td>{{ $product->status }}</td>
-                        </tr>
+                            <td>
+                             <a class="btn btn-link" href="{{ route('products.show', ['product' => $product->id]) }}">Show</a>
+                             <a class="btn btn-link" href="{{ route('products.edit', ['product' => $product->id]) }}">Edit</a>
+                            <form method="POST" action="{{ route('products.destroy', ['product' => $product->id]) }}" style="display:inline;">
+                             @csrf
+                             @method('DELETE')
+                             <button type="submit" class="btn btn-link" onclick="return confirm('Are you sure you want to delete this product?')">Delete</button>
+                             </form>
+                             </td>
+
                     @endforeach
                 </tbody>
             </table>

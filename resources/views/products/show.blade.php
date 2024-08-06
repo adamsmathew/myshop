@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>{{ $product->title }} ({{ $product->id }})</h1>
+    <!-- <h1>{{ $product->title }} ({{ $product->id }})</h1> -->
     <p>{{ $product->description }} </P>
     <p>{{ $product->price }} </P>
     <p>{{ $product->stock }} </P>
