@@ -6,7 +6,10 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>soap (1) </h1>
-    <p> beat soap ever </P>
+    <h1>{{ $product->title }} ({{ $product->id }})</h1>
+    <p>{{ $product->description }} </P>
+    <p>{{ $product->price }} </P>
+    <p>{{ $product->stock }} </P>
+    <p>{{ $product->status }} </P>
 </body>
 </html>
